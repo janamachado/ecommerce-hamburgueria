@@ -1,6 +1,7 @@
 import './styles.css'
 
 const Cart = ({products, currentSale, setCurrentSale})=>{
+
     function deleteProduct (id){
         const findedProduct = currentSale.filter((product)=>{
             return id !== product.id
@@ -36,8 +37,8 @@ const Cart = ({products, currentSale, setCurrentSale})=>{
                                                 className='img_cart'
                                                 src={product.img}
                                                 alt={product.name} />
-
                                             </div>
+                                            
                                             <div className='div_infosCart'>
                                                 <h3 className='title_Cart'>{product.name}</h3>
                                                 <span>{product.category}</span>
@@ -56,7 +57,7 @@ const Cart = ({products, currentSale, setCurrentSale})=>{
                     <span className='span_priceCart'>
                         {
                             currentSale.map((product) => product.price)
-                            .reduce((att, cur) => att + cur, 0)
+                            .reduce((acc, cur) => acc + cur, 0)
                             .toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                         }
                         
@@ -66,7 +67,6 @@ const Cart = ({products, currentSale, setCurrentSale})=>{
                     className='btn_removeAll'
                     onClick={()=> setCurrentSale([])}>Remover todos</button>
             </div>
-
         </aside>
     )}
 

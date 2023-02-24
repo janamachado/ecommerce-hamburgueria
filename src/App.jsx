@@ -24,9 +24,7 @@ function App() {
      const filteredProduct = products.filter((product)=> product.name.toLowerCase().includes(data.toLowerCase())) ||
       products.category.toLowerCase().includes(data.toLowerCase())
       setFilteredProducts(filteredProduct)
-      
-      console.log("funciono", filteredProduct)
-  }
+      }
 
   function handleClick (id){
     const findedProduct = products.find((prod) => prod.id === id)
@@ -58,9 +56,13 @@ function App() {
       <div className='div_infosProducts'>
         <main>
           {filteredProducts[0] === undefined ? (
-            <ProductsList products={products} handleClick={handleClick} />
+            <ProductsList
+            products={products}
+            handleClick={handleClick} />
           ):(
-            <ProductsList products={filteredProducts} handleClick={handleClick} />
+            <ProductsList
+            products={filteredProducts}
+            handleClick={handleClick} />
           )}
         </main>
         <section className='section_cart'>
